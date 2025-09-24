@@ -1,0 +1,252 @@
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body ocupa toda a altura e organiza em coluna */
+body, html {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* necessário para o overlay */
+
+
+    /* Fundo fixo responsivo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+
+/* Para telas maiores (desktop), troca a imagem */
+@media (min-width: 769px) {
+    body::before {
+        background-image: url('img2.png'); /* imagem desktop */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img2.png');
+
+    }
+}
+}
+
+/* Container principal cresce para ocupar o espaço restante */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px 0px;
+    text-align: center;
+    flex: 1;
+}
+
+/* Restante do CSS separado do body */
+h1 {
+    font-size: 3rem;          /* maior para destaque */
+    margin-bottom: 20px;
+    font-weight: 900;         /* mais pesado e impactante */
+    color: #000;              /* texto preto */
+    
+    /* Borda branca */
+    -webkit-text-stroke: 2px #fff; /* espessura da borda */
+    
+    /* Sombra sutil para profundidade */
+    text-shadow: 
+        2px 2px 4px rgba(0,0,0,0.3),   /* sombra principal */
+        0 0 10px rgba(255,255,255,0.2); /* leve brilho branco */
+    
+    letter-spacing: 1px;       /* mais moderno e elegante */
+}
+
+
+
+
+/* ... resto do CSS continua igual ... */
+
+    #typed-text, #typed-text2 {
+    display: inline-block;
+    white-space: pre-line; /* respeita \n */
+    }
+    .title-fixed {
+    min-height: 70px; /* mantém o espaço fixo para duas linhas de texto */
+    white-space: pre-line; /* permite quebras de linha com \n */
+    display: inline-block;
+    text-align: center;
+    }
+
+    .cursor {
+    display: inline-block;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #FFD700;
+    animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+    }
+
+
+
+  .intro {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    color: #fff; /* texto branco */
+    
+    /* Sombra preta para legibilidade em qualquer fundo */
+    text-shadow: 
+        2px 2px 4px rgba(0,0,0,0.8),
+       -2px 2px 4px rgba(0,0,0,0.8),
+        2px -2px 4px rgba(0,0,0,0.8),
+       -2px -2px 4px rgba(0,0,0,0.8);
+    
+    letter-spacing: 0.5px;
+}
+
+
+    /* Cards */
+    .card, .video-container, .mapa {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px auto;
+    border: 1px solid rgba(255, 215, 0, 0.4); /* detalhe dourado */
+    box-shadow: 0 5px 25px rgba(255, 215, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover, .video-container:hover, .mapa:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(255, 215, 0, 0.3);
+    }
+
+    .video-container iframe,
+    .mapa iframe {
+    width: 100%;
+    min-height: 300px;
+    border: none;
+    border-radius: 12px;
+    }
+
+    /* Contatos */
+    .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    }
+
+    /* Ícones sociais */
+    .socialContainer {
+    width: 52px;
+    height: 52px;
+    border-radius: 5px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    }
+
+    /* Hover cores específicas */
+    .containerOne:hover { background-color: #d62976; transition-duration: 0.3s; }
+    .containerTwo:hover { background-color: #25f4ee; transition-duration: 0.3s; }
+    .containerThree:hover { background-color: #1877f2; transition-duration: 0.3s; }
+    .containerFour:hover { background-color: green; transition-duration: 0.3s; }
+
+    /* Clique nos ícones */
+    .socialContainer:active { transform: scale(0.9); transition-duration: 0.3s; }
+
+    .socialSvg { width: 19px; }
+    .largeIcon { width: 27px; } 
+    .socialSvg path { fill: #fff; }
+
+    /* Slide-in animation */
+    .socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+    }
+
+    @keyframes slide-in-top {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+    } 
+
+    /* Footer */
+    /* Footer */
+/* Footer separado, mesmo tamanho e estilo do card */
+.footer {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 15px;
+    padding: 25px;       /* igual aos cards */
+    margin: 30px auto 50px;    /* igual aos cards */
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 5px 25px rgba(255, 215, 0, 0.1);
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    max-width: 1000px;    /* mesma largura máxima dos cards */
+    width: 100%;
+    display: block;       /* importante: igual aos cards */
+    position: relative;
+    overflow: hidden;
+}
+
+.footer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(255, 215, 0, 0.3);
+}
+
+.footer:active {
+    transform: scale(1.03);
+    box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4);
+}
+
+/* Footer links */
+.footer a {
+    color: #FFD700;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Footer responsivo PC x Mobile */
+.footer-pc { display: block; }
+.footer-mobile { display: none; }
+
+@media (max-width: 768px) {
+    .footer-pc { display: none; }
+    .footer-mobile { display: block; }
+}
+
+
+
+   
+
+    /* Efeito moderno ao clicar no card */
+    .card, .video-container, .mapa, .footer {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    }
+
+    .card:active, .video-container:active, .mapa:active, .footer:active {
+    transform: scale(1.03); /* leve zoom */
+    box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4); /* brilho suave maior */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
